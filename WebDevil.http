@@ -1,0 +1,6 @@
+@WebDevil_HostAddress = http://localhost:5145
+
+GET {{WebDevil_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
