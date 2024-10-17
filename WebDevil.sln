@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.11.35222.181
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebDevil", "WebDevil.csproj", "{A71C34A7-55F7-488F-8EEF-9889BB29B7FA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebDevil", "WebDevil.csproj", "{A71C34A7-55F7-488F-8EEF-9889BB29B7FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfAppDevil", "..\WpfAppDevil\WpfAppDevil.csproj", "{8083B3C1-DBA4-467C-B04D-61E69393F68F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{A71C34A7-55F7-488F-8EEF-9889BB29B7FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A71C34A7-55F7-488F-8EEF-9889BB29B7FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A71C34A7-55F7-488F-8EEF-9889BB29B7FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8083B3C1-DBA4-467C-B04D-61E69393F68F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8083B3C1-DBA4-467C-B04D-61E69393F68F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8083B3C1-DBA4-467C-B04D-61E69393F68F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8083B3C1-DBA4-467C-B04D-61E69393F68F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

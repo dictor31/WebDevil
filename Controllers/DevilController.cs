@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
+using System.Collections.ObjectModel;
 using WebDevil.Model;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -19,9 +21,11 @@ namespace WebDevil.Controllers
         }
 
         [HttpGet("GetDevils")]
-        public async Task<ActionResult<Devil>> Get()
+        public async Task<ActionResult<ObservableCollection<Devil>>> Get()
         {
-            return Ok();
+            ObservableCollection<Devil> devils = new ObservableCollection<Devil>(dataBase.Devils);
+            
+            return Ok(devils);
         }
 
         [HttpPost("AddDevil")]
@@ -40,10 +44,21 @@ namespace WebDevil.Controllers
         }
 
         [HttpDelete("DeleteDevil")]
-        public async Task<ActionResult> Delete(Devil devil)
+        public async Task<ActionResult> Delete(int id)
         {
-
-            return Ok(devil);
+            Devil find = await dataBase.Devils.FirstOrDefaultAsync(s => s.Id == id);
+            if (find == null)
+            {
+                return BadRequest("Пусто");
+            }
+            dataBase.Devils.Remove(find);
+            Disposal disposal = new();
+            disposal.Title = find.Nick;
+            disposal.Year = find.Year;
+            disposal.Date = DateTime.Now;
+            dataBase.Disposals.Add(disposal);
+            await dataBase.SaveChangesAsync();
+            return Ok("Списано");
         }
     }
 }

@@ -19,5 +19,5 @@ public partial class Devil
 
     public int Year { get; set; }
 
-    public virtual ICollection<Rack> Racks { get; set; } = new List<Rack>();
+    public virtual ICollection<Rack> Racks { get; set; }
 }

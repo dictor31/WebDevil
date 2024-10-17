@@ -24,8 +24,9 @@ public partial class _666Context : DbContext
 
     public virtual DbSet<Rack> Racks { get; set; }
 
+//   string my1 = "server=192.168.200.13;userid=student;password=student;database=666";
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseMySql("server=192.168.200.13;userid=student;password=student;database=666", ServerVersion.Parse("10.3.39-mariadb"));
+        => optionsBuilder.UseMySql("server=localhost;userid=root;password=admin;database=666", ServerVersion.Parse("10.3.39-mariadb"));
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
