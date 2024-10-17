@@ -9,22 +9,22 @@ namespace WebDevil.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class HumanController : ControllerBase
+    public class DevilController : ControllerBase
     {
         readonly DB._666Context dataBase;
 
-        public HumanController(DB._666Context database)
+        public DevilController(DB._666Context database)
         {
             dataBase = database;
         }
 
-        [HttpGet("GetHumans")]
+        [HttpGet("GetDevils")]
         public async Task<ActionResult<Devil>> Get()
         {
             return Ok();
         }
 
-        [HttpPost("AddHuman")]
+        [HttpPost("AddDevil")]
         public async Task<ActionResult> Post(Devil devil)
         {
             dataBase.Devils.Add(devil);
@@ -32,14 +32,14 @@ namespace WebDevil.Controllers
             return Ok("Дьявол создан");
         }
 
-        [HttpPut("PutHuman")]
+        [HttpPut("PutDevil")]
         public async Task<ActionResult> Put(Devil devil)
         {
 
             return Ok();
         }
 
-        [HttpDelete("DeleteHuman")]
+        [HttpDelete("DeleteDevil")]
         public async Task<ActionResult> Delete(Devil devil)
         {
 
