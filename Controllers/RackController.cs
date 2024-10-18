@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using System.Collections.ObjectModel;
 using WebDevil.Model;
 
@@ -26,19 +27,23 @@ namespace WebDevil.Controllers
         [HttpPost("AddRack")]
         public async Task<ActionResult> Post(Rack rack)
         {
-            return Ok(rack);
+            dataBase.Racks.Add(rack);
+            await dataBase.SaveChangesAsync();
+            return Ok("Мебель создана");
         }
 
         [HttpPut("PutRack")]
         public async Task<ActionResult> Put(Rack rack)
         {
-            return Ok(rack);
-        }
+            Rack find = await dataBase.Racks.FirstOrDefaultAsync(s => s.Id == rack.Id);
+            find.Title = rack.Title;
+            find.YearBuy = rack.YearBuy;
+            find.UseCount = rack.UseCount;
+            find.CurrentCount = rack.CurrentCount;
+            find.IdDevil = rack.IdDevil;
 
-        [HttpDelete("KillRack")]
-        public async Task<ActionResult> Delete(int id)
-        {
-            return Ok();
+            await dataBase.SaveChangesAsync();
+            return Ok("Мебель изменена");
         }
     }
 }

@@ -13,8 +13,8 @@
 				<MenuItem Header="Изменить" Click="Click_Editor"/>
 			</MenuItem>
 			<MenuItem Header="Мебель">
-				<MenuItem Header="Добавить"/>
-				<MenuItem Header="Изменить"/>
+				<MenuItem Header="Добавить" Click="Click_REditorNew"/>
+				<MenuItem Header="Изменить" Click="Click_REditor"/>
 			</MenuItem>
 		</Menu>
 		<TabControl Width="600" HorizontalAlignment="Left">

@@ -27,6 +27,7 @@ namespace WpfAppDevil
         public ObservableCollection<Rack> Racks { get; set; } = new();
         public ObservableCollection<Disposal> Disposals { get; set; } = new();
         public Devil SelectedDevil { get; set; }
+        public Rack SelectedRack { get; set; }
 
         HttpClient client = new();
         private string result;
@@ -124,6 +125,18 @@ namespace WpfAppDevil
         private void Click_Editor(object sender, RoutedEventArgs e)
         {
             DevilEditorWindow window = new(SelectedDevil);
+            window.ShowDialog();
+        }
+
+        private void Click_REditorNew(object sender, RoutedEventArgs e)
+        {
+            RackEditorWindow window = new(Devils);
+            window.ShowDialog();
+        }
+
+        private void Click_REditor(object sender, RoutedEventArgs e)
+        {
+            RackEditorWindow window = new(SelectedRack, Devils);
             window.ShowDialog();
         }
     }
