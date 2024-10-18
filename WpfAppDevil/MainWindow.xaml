@@ -1,0 +1,61 @@
+﻿<Window x:Class="WpfAppDevil.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfAppDevil"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+		<Menu HorizontalAlignment="Right">
+			<MenuItem Header="Дьявол">
+				<MenuItem Header="Добавить" Click="Click_EditorNew"/>
+				<MenuItem Header="Изменить" Click="Click_Editor"/>
+			</MenuItem>
+			<MenuItem Header="Мебель">
+				<MenuItem Header="Добавить"/>
+				<MenuItem Header="Изменить"/>
+			</MenuItem>
+		</Menu>
+		<TabControl Width="600" HorizontalAlignment="Left">
+			<TabItem Header="Работники">
+				<ListView ItemsSource="{Binding Devils}" SelectedItem="{Binding SelectedDevil}">
+					<ListView.View>
+						<GridView>
+							<GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}"/>
+							<GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Nick}"/>
+							<GridViewColumn Header="Ранг" DisplayMemberBinding="{Binding Rank}"/>
+							<GridViewColumn Header="Год" DisplayMemberBinding="{Binding Year}"/>
+						</GridView>
+					</ListView.View>
+				</ListView>
+			</TabItem>
+			<TabItem Header="Мебель">
+				<ListView ItemsSource="{Binding Racks}">
+					<ListView.View>
+						<GridView>
+							<GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}"/>
+							<GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Title}"/>
+							<GridViewColumn Header="Id девила" DisplayMemberBinding="{Binding IdDevil}"/>
+							<GridViewColumn Header="Год покупки" DisplayMemberBinding="{Binding YearBuy}"/>
+							<GridViewColumn Header="Макс. кол. использований" DisplayMemberBinding="{Binding UseCount}"/>
+							<GridViewColumn Header="Количество использований" DisplayMemberBinding="{Binding CurrentCount}"/>
+						</GridView>
+					</ListView.View>
+				</ListView>
+			</TabItem>
+			<TabItem Header="Списано">
+				<ListView ItemsSource="{Binding Disposals}">
+					<ListView.View>
+						<GridView>
+							<GridViewColumn Header="ID" DisplayMemberBinding="{Binding Id}"/>
+							<GridViewColumn Header="Имя" DisplayMemberBinding="{Binding Title}"/>
+							<GridViewColumn Header="Дата покупки" DisplayMemberBinding="{Binding Year}"/>
+							<GridViewColumn Header="Дата утилизации" DisplayMemberBinding="{Binding Date}"/>
+						</GridView>
+					</ListView.View>
+				</ListView>
+			</TabItem>
+		</TabControl>
+	</Grid>
+</Window>

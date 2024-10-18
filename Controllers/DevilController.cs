@@ -39,8 +39,13 @@ namespace WebDevil.Controllers
         [HttpPut("PutDevil")]
         public async Task<ActionResult> Put(Devil devil)
         {
+            Devil find = await dataBase.Devils.FirstOrDefaultAsync(s => s.Id == devil.Id);
+            find.Nick = devil.Nick;
+            find.Rank = devil.Rank;
+            find.Year = devil.Year;
 
-            return Ok();
+            await dataBase.SaveChangesAsync();
+            return Ok(find);
         }
 
         [HttpDelete("DeleteDevil")]
